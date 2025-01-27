@@ -10,4 +10,6 @@
     userEmail = "jeising@magazino.eu";
     userName = "Johannes Jeising";
   };
+
+  targets.genericLinux.enable = true;
 }
