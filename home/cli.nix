@@ -4,6 +4,15 @@
     ./nixvim.nix
   ];
 
+  programs.fzf.enable = true;
+
+  programs.bash = {
+    enable = true;
+    enableCompletion = true;
+    bashrcExtra = "";
+    shellAliases = { };
+  };
+
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;

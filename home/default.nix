@@ -14,18 +14,13 @@ let
   };
 in
 {
-  jeising = home-manager.lib.homeManagerConfiguration {
-    inherit pkgs;
-    modules = [
-      ./work.nix
-    ] ++ basics;
-  };
-  jsqu4re = home-manager.lib.homeManagerConfiguration {
-    inherit pkgs;
-    modules = [
-      ./home.nix
-      ./gui.nix
-      ./hyprland.nix
-    ] ++ basics;
-  };
+  jeising = makeConfig ([
+    ./work.nix
+  ] ++ basics );
+
+  jsqu4re = makeConfig ([
+    ./home.nix
+    ./gui.nix
+    ./hyprland.nix
+  ] ++ basics );
 }

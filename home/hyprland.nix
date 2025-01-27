@@ -15,6 +15,15 @@ let
   };
 in
 {
+  home.packages = with pkgs; [
+    hyprland-qtutils
+  ];
+
+  xresources.properties = {
+    "Xcursor.size" = 24;
+    "Xft.dpi" = 200;
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
