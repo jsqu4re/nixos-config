@@ -1,15 +1,15 @@
-{ nixosSystem, pkgs, grub2-theme, nixos-hardware, home-manager, nixvim, homeConfigs }:
+{ nixosSystem, grub2-theme, nixos-hardware, home-manager, nixvim, homeConfigurations, overlays }:
 let
   makeNixosSystem = machineModules: nixosSystem {
     system = "x86_64-linux";
     modules = [
+      { nixpkgs.overlays = [ overlays.default ]; }
       home-manager.nixosModules.home-manager {
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
-          users.jsqu4re = builtins.removeAttrs homeConfigs.jsqu4re.config [ "nixpkgs" ];
+          users.jsqu4re = homeConfigurations.nixos-jsqu4re;
           backupFileExtension = "backup";
-          sharedModules = [ nixvim.homeManagerModules.nixvim ];
         };
       }
       grub2-theme.nixosModules.default

@@ -23,16 +23,14 @@
     nixosSystem = nixpkgs.lib.nixosSystem;
     homeConfigActivationPackages = builtins.mapAttrs (_name: homeConfig: homeConfig.activationPackage) self.homeConfigurations;
     nixosMachinePackages = builtins.mapAttrs (_name: nixosConfig: nixosConfig.config.system.build.toplevel) self.nixosConfigurations;
-
-    homeConfigs = self.homeConfigurations;
   in
   {
     legacyPackages.${system} = pkgs;
-    nixosConfigurations = import ./hosts { inherit nixosSystem pkgs grub2-theme nixos-hardware home-manager nixvim homeConfigs; };
+    nixosConfigurations = import ./hosts { inherit nixosSystem grub2-theme nixos-hardware home-manager nixvim; inherit (self) overlays homeConfigurations; };
     nixosModules = import ./modules { };
     homeConfigurations = import ./home { inherit pkgs home-manager nixvim; };
 
-    packages.${system} = homeConfigActivationPackages // nixosMachinePackages // { inherit (pkgs) zen-browser; };
+    packages.${system} = homeConfigActivationPackages // nixosMachinePackages // { inherit (pkgs) zen-browser; inherit home-manager nixosSystem nixpkgs; };
 
     overlays.default = import ./overlay.nix;
   };

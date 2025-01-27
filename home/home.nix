@@ -1,7 +1,9 @@
-{ ... }:
+{ lib, ... }:
 {
-  home.username = "jsqu4re";
-  home.homeDirectory = "/home/jsqu4re";
+  home = lib.mkDefault {
+    username = "jsqu4re";
+    homeDirectory = "/home/jsqu4re";
+  };
 
   programs.git = {
     enable = true;

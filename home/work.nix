@@ -1,7 +1,9 @@
 { ... }:
 {
-  home.username = "jeising";
-  home.homeDirectory = "/home/jeising";
+  home = lib.mkDefault {
+    username = "jeising";
+    homeDirectory = "/home/jeising";
+  };
 
   programs.git = {
     enable = true;

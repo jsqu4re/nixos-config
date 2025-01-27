@@ -162,14 +162,14 @@ in
     #media-session.enable = true;
   };
 
-  # users.users.jsqu4re = {
-  #   isNormalUser = true;
-  #   description = "Johannes";
-  #   extraGroups = [ "networkmanager" "libvirtd" "wheel" ];
-  #   packages = with pkgs; [
-  #     pavucontrol
-  #   ];
-  # };
+  users.users.jsqu4re = {
+    isNormalUser = true;
+    description = "Johannes";
+    extraGroups = [ "networkmanager" "libvirtd" "wheel" ];
+    packages = with pkgs; [
+      pavucontrol
+    ];
+  };
 
   nixpkgs.config.allowUnfree = true;
 

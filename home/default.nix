@@ -23,4 +23,12 @@ in
     ./gui.nix
     ./hyprland.nix
   ] ++ basics );
+  
+  nixos-jsqu4re = { ... }: {
+    imports = [
+      ./home.nix
+      ./gui.nix
+      ./hyprland.nix
+      ] ++ basics;
+  };
 }
