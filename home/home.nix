@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  home = lib.mkDefault {
+  home = lib.mkForce {
     username = "jsqu4re";
     homeDirectory = "/home/jsqu4re";
   };

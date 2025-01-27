@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  home = lib.mkDefault {
+  home = lib.mkForce {
     username = "jeising";
     homeDirectory = "/home/jeising";
   };
