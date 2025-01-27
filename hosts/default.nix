@@ -8,7 +8,7 @@ let
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
-          users.jsqu4re = homeConfigurations.nixos-jsqu4re;
+          users.jsqu4re = homeConfigurations.nixos.jsqu4re;
           backupFileExtension = "backup";
         };
       }

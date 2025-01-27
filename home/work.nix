@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 {
   home = lib.mkDefault {
     username = "jeising";

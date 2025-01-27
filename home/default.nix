@@ -14,21 +14,24 @@ let
   };
 in
 {
-  jeising = makeConfig ([
-    ./work.nix
-  ] ++ basics );
+  home = {
+    jeising = makeConfig ([
+      ./work.nix
+    ] ++ basics );
 
-  jsqu4re = makeConfig ([
-    ./home.nix
-    ./gui.nix
-    ./hyprland.nix
-  ] ++ basics );
-  
-  nixos-jsqu4re = { ... }: {
-    imports = [
+    jsqu4re = makeConfig ([
       ./home.nix
       ./gui.nix
       ./hyprland.nix
-      ] ++ basics;
+    ] ++ basics );
+  };
+  nixos = {
+    jsqu4re = { ... }: {
+      imports = [
+        ./home.nix
+        ./gui.nix
+        ./hyprland.nix
+        ] ++ basics;
+    };
   };
 }
