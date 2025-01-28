@@ -13,6 +13,7 @@ in
   home = {
     jeising = makeConfig ([
       ./work.nix
+      ./gui.nix
       ./cli.nix
       ./base.nix
     ] ++ modules );

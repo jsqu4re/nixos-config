@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     zen-browser
+    zen-browser.cli
     wl-clipboard
     nautilus
     # gimp

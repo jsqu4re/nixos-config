@@ -10,7 +10,11 @@
     enable = true;
     enableCompletion = true;
     bashrcExtra = "";
-    shellAliases = { };
+    shellAliases = {
+      l = "ls -alh";
+      ll = "ls -l";
+      ls = "ls --color=tty";
+    };
   };
 
   programs.starship = {

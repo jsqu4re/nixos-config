@@ -27,5 +27,6 @@ let
   };
 in
 zen-browser.overrideAttrs (_: {
+  cli = zen;
   meta.mainProgram = "zen";
 })
