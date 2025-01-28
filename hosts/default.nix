@@ -1,4 +1,4 @@
-{ nixosSystem, grub2-theme, nixos-hardware, home-manager, nixvim, homeConfigurations, overlays }:
+{ nixosSystem, grub2-theme, nixos-hardware, home-manager, homeNixos, overlays }:
 let
   makeNixosSystem = machineModules: nixosSystem {
     system = "x86_64-linux";
@@ -8,7 +8,7 @@ let
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
-          users.jsqu4re = homeConfigurations.nixos.jsqu4re;
+          users.jsqu4re = homeNixos.jsqu4re;
           backupFileExtension = "backup";
         };
       }
