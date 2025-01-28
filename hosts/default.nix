@@ -23,6 +23,8 @@ in
 
   mutabilix = makeNixosSystem [
     ./mutabilix/configuration.nix
+    ../modules/gaming.nix
+    ../modules/bluetooth.nix
     nixos-hardware.nixosModules.microsoft-surface-pro-intel
   ];
 }
