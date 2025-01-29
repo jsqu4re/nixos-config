@@ -21,7 +21,7 @@
       overlays = [ self.overlays.default ];
     };
     nixosSystem = nixpkgs.lib.nixosSystem;
-    homeConfigurations = import ./home { inherit pkgs home-manager nixvim; };
+    homeConfigurations = import ./home { inherit nixpkgs pkgs home-manager nixvim; };
     homeNixos = homeConfigurations.nixos;
     homeConfigActivationPackages = builtins.mapAttrs (_name: homeConfig: homeConfig.activationPackage) homeConfigurations.home;
     nixosMachinePackages = builtins.mapAttrs (_name: nixosConfig: nixosConfig.config.system.build.toplevel) self.nixosConfigurations;
