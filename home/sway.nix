@@ -10,6 +10,8 @@ let
 in
 {
   home.packages = [
+    pkgs.chromium
+    pkgs.gopass
     pkgs.dejavu_fonts
     pkgs.dmenu-rs
     pkgs.fd
