@@ -9,7 +9,7 @@
   nix.settings.trusted-users = [ "jsqu4re" "root" "@wheel" ];
 
   virtualisation.libvirtd.enable = true;
-  boot.kernelModules = [ "kvm-amd" "kvm-intel" ];
+  boot.kernelModules = [ "kvm-amd" "kvm-intel" "sg" ];
 
   boot.loader.grub = {
     enable = true;
