@@ -15,11 +15,6 @@
     enable = true;
     device = "nodev";
     useOSProber = true;
-    # extraEntries = ''
-    #   menuentry "Windows 10" {
-    #     chainloader (hd0,1)+1
-    #   }
-    # '';
     efiSupport = true;
   };
 
@@ -90,12 +85,6 @@
 
   security.pam.services.hyprlock = {};
 
-  # programs.hyprland = {
-  #   enable = true;
-  #   xwayland.enable = true;
-  #   # enableNvidiaPatches = true;
-  # };
-
   # Configure keymap in X11
   services.xserver = {
     enable = true;
@@ -128,6 +117,7 @@
     extraGroups = [ "qemu-libvirtd" "libvirtd" "video" "audio" "disk" "networkmanager" "wheel" ];
     packages = with pkgs; [
       pavucontrol
+      makemkv
     ];
   };
 
@@ -151,21 +141,9 @@
   networking.defaultGateway = "192.168.1.1";
   networking.nameservers = [ "192.168.1.145" ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
   services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = false;
+  networking.firewall.enable = true;
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.11";
 }
