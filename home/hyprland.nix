@@ -17,6 +17,7 @@ in
 {
   home.packages = with pkgs; [
     hyprland-qtutils
+    vlc-blu-ray
   ];
 
   xresources.properties = {
