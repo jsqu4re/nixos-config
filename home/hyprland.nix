@@ -1,7 +1,8 @@
 { pkgs, config, ... }:
 let
   color = {
-    background = "2E3440";
+    # background = "2E3440";
+    background = "121419";
     lightbackground = "3E4656";
     foreground = "D8DEE9";
     black = "3B4252";
@@ -330,8 +331,20 @@ in
             on-scroll-down = "shift_down";
           };
         };
+        "battery" = {
+          interval = 60;
+          states = {
+            warning = 30;
+            critical = 15;
+          };
+          format = "{icon}";
+          format-charging = "";
+          format-plugged = "";
+          format-icons = ["" "" "" "" ""];
+          max-length = 25;
+        };
         modules-center = ["hyprland/window"];
-        modules-right = ["tray" "clock"];
+        modules-right = ["tray" "battery" "clock"];
       };
     };
     # font-family: Source Code Pro;
@@ -344,7 +357,7 @@ in
       * {
         border: none;
         border-radius: 20;
-        font-size: 16px;
+        font-size: 14px;
         font-family: "Arimo Nerd Font", "Font Awesome 5 Free", "Font Awesome 6 Free";
       }
       window#waybar {
@@ -417,23 +430,23 @@ in
         background-color: #${color.red};
       }
 
-      #pulseaudio, #cpu, #memory, #disk{
+      #pulseaudio, #cpu, #memory, #disk, #tray, #battery {
         margin-left: 5px;
         border-left: 2px solid #${color.cyan};
       }
 
-      #window, #disk, #mpd, #pulseaudio, #network, #cpu, #memory, #temperature, #clock {
+      #window, #disk, #mpd, #pulseaudio, #network, #cpu, #memory, #temperature, #clock, #tray, #battery {
         padding-left: 8px;
         padding-right: 8px;
         margin-top: 8px;
+        /*
         border-top: 2px solid #${color.lightbackground};
         border-bottom: 1px solid #${color.lightbackground};
-        /*
         padding-top: 5px;
         padding-bottom: 5px;
-        */
-
         background-color: #${color.background};
+        */
+        background-color: transparent;
         color: inherit;
         font-weight: 600;
         /*border-top: 4px solid transparent;
@@ -448,15 +461,6 @@ in
       #window {
         border-left: 2px solid #${color.yellow};
         border-right: 2px solid #${color.cyan};
-      }
-
-      #tray {
-        background-color: #${color.background};
-        padding-left: 8px;
-        padding-right:8px;
-        min-width: 40px;
-        border-left: 2px solid #${color.cyan};
-        font-size: 20px;
       }
 
       #clock {
