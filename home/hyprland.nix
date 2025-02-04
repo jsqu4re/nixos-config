@@ -340,6 +340,7 @@ in
           format = "{icon}";
           format-charging = "";
           format-plugged = "";
+          format-full = "";
           format-icons = ["" "" "" "" ""];
           max-length = 25;
         };
