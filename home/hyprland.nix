@@ -337,7 +337,7 @@ in
           max-length = 200;
           rewrite = {
             "(.*) — Zen Browser"= "  $1";
-            "nvim(.*)"= "$1";
+            "nvim(.*)"= "N";
           };
           separate-outputs = true;
         };
