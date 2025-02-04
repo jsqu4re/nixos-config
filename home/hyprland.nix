@@ -238,29 +238,20 @@ in
         layer = "top";
         position = "top";
         height = 10;
-        modules-left = [
-          "hyprland/workspaces"
-          "pulseaudio"
-          "cpu"
-          "memory"
-          "disk"
-        ];
         "cpu" = {
           interval=1;
           format=" &#xf2db; {icon} ";
           format-icons={
             default= [
-              "          "
-              "|         "
-              "||        "
-              "|||       "
-              "||||      "
-              "|||||     "
-              "||||||    "
-              "|||||||   "
-              "||||||||  "
-              "||||||||| "
-              "||||||||||"
+              "        "
+              "|       "
+              "||      "
+              "|||     "
+              "||||    "
+              "|||||   "
+              "||||||  "
+              "||||||| "
+              "||||||||"
             ];
           };
         };
@@ -269,17 +260,15 @@ in
           format=" &#xf3ff; {icon} ";
           format-icons={
             default= [
-              "          "
-              "|         "
-              "||        "
-              "|||       "
-              "||||      "
-              "|||||     "
-              "||||||    "
-              "|||||||   "
-              "||||||||  "
-              "||||||||| "
-              "||||||||||"
+              "        "
+              "|       "
+              "||      "
+              "|||     "
+              "||||    "
+              "|||||   "
+              "||||||  "
+              "||||||| "
+              "||||||||"
             ];
           };
         };
@@ -332,7 +321,7 @@ in
           };
         };
         "battery" = {
-          interval = 60;
+          interval = 30;
           states = {
             warning = 30;
             critical = 15;
@@ -344,6 +333,21 @@ in
           format-icons = ["" "" "" "" ""];
           max-length = 25;
         };
+        "hyprland/window" = {
+          max-length = 200;
+          rewrite = {
+            "(.*) — Zen Browser"= "  $1";
+            "nvim(.*)"= "$1";
+          };
+          separate-outputs = true;
+        };
+        modules-left = [
+          "hyprland/workspaces"
+          "pulseaudio"
+          "cpu"
+          "memory"
+          "disk"
+        ];
         modules-center = ["hyprland/window"];
         modules-right = ["tray" "battery" "clock"];
       };
