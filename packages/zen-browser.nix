@@ -9,7 +9,7 @@ let
       then
         ${nix}/bin/nix run github:0xc000022070/zen-browser-flake --offline
       else
-        ${nix}/bin/nix build github:0xc000022070/zen-browser-flake &
+        ${nix}/bin/nix build github:0xc000022070/zen-browser-flake -o /nix/var/nix/gcroots/per-user/jsqu4re/zen &
         ${nix}/bin/nix run github:0xc000022070/zen-browser-flake --offline
       fi
     '';
