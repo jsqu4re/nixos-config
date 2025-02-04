@@ -62,18 +62,18 @@ in
 
       windowrulev2 = [
         # steam
-	"stayfocused, title:^()$,class:^(steam)$"
-	"minsize 1 1, title:^()$,class:^(steam)$"
-        # "float, class:(steam), title:(Steam)"
-        # "float, class:(steam), title:(Friends List)"
-        # "nofocus, class:^(steam)$, title:^()$"
+	      "stayfocused, title:^()$,class:^(steam)$"
+	      "minsize 1 1, title:^()$,class:^(steam)$"
+        "float, class:(steam), title:(Steam)"
+        "float, class:(steam), title:(Friends List)"
+        "nofocus, class:^(steam)$, title:^()$"
 
-        # flameshot
-        # "float, title:^(flameshot)"
-        # "move 0 0, title:^(flameshot)"
-        # "suppressevent fullscreen, title:^(flameshot)"
+        # zen-browser
+        "float, title:^(Picture-in-Picture)$"
+        "pin, title:^(Picture-in-Picture)$"
+        "move 66% 1%, title:^(Picture-in-Picture)$"
+        "size 33% 28%, title:^(Picture-in-Picture)$"
 
-        # satty
         "noanim, class:(com.gabm.satty)"
         "float, class:(com.gabm.satty)"
 
@@ -87,10 +87,6 @@ in
         # ags
         "blur, ags-*"
         "ignorezero, ags-*"
-
-        # sexshell
-        "blur, quickshell"
-        "ignorezero, quickshell"
       ];
 
       monitor = ["HDMI-A-3,3840x2160@60,0x0,1" "Unknown-1,disable"];
@@ -210,7 +206,7 @@ in
       bindm = [
         # move & resize windows
         "$mainMod, mouse:272, movewindow"
-        "$mainMod, mouse:273, resizewindow"
+        "CTRL $mainMod, mouse:272, resizewindow"
       ];
 
       binde = [
