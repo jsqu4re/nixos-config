@@ -19,12 +19,23 @@ in
 {
   tabula = makeNixosSystem [
     ./tabula/configuration.nix
+    ../modules/user.nix
+    ../modules/gaming.nix
+    ../modules/audio.nix
+    ../modules/networking.nix
+    ../modules/localization.nix
+    ../modules/boot.nix
   ];
 
   mutabilix = makeNixosSystem [
     ./mutabilix/configuration.nix
+    ../modules/user.nix
     ../modules/gaming.nix
     ../modules/bluetooth.nix
+    ../modules/audio.nix
+    ../modules/networking.nix
+    ../modules/localization.nix
+    ../modules/boot.nix
     nixos-hardware.nixosModules.microsoft-surface-pro-intel
   ];
 }
