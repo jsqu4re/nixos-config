@@ -7,10 +7,10 @@ let
       ${unixtools.ping}/bin/ping -c 1 github.com > /dev/null 2>&1
       if [ $? -ne 0 ]
       then
-        ${nix}/bin/nix run github:0xc000022070/zen-browser-flake --offline
+        ${nix}/bin/nix run github:0xc000022070/zen-browser-flake --offline -- "$1"
       else
         ${nix}/bin/nix build github:0xc000022070/zen-browser-flake -o /nix/var/nix/gcroots/per-user/jsqu4re/zen &
-        ${nix}/bin/nix run github:0xc000022070/zen-browser-flake --offline
+        ${nix}/bin/nix run github:0xc000022070/zen-browser-flake --offline -- "$1"
       fi
     '';
     executable = true;
