@@ -8,8 +8,6 @@
       ./hardware-configuration.nix
     ];
 
-  # boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
-
   networking.hostName = "mutabilix";
 
   # Enable common container config files in /etc/containers
@@ -64,18 +62,6 @@
   #  systemd.tmpfiles.rules = [
   #    "f /dev/shm/looking-glass 0660 ${config.users.users.jsqu4re.name} libvirtd -"
   #  ];
-
-  # Load nvidia driver for Xorg and Wayland
-  # services.xserver.videoDrivers = ["nvidia"];
-
-  # hardware.nvidia = {
-  #   modesetting.enable = true;
-  #   powerManagement.enable = true;
-  #   powerManagement.finegrained = false;
-  #   open = false;
-  #   nvidiaSettings = true;
-  #   package = config.boot.kernelPackages.nvidiaPackages.beta;
-  # };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

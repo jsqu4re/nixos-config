@@ -21,6 +21,7 @@ in
     ./tabula/configuration.nix
     ../modules/user.nix
     ../modules/gaming.nix
+    ../modules/nvidia.nix
     ../modules/audio.nix
     ../modules/networking.nix
     ../modules/localization.nix
