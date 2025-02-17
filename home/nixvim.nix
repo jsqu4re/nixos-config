@@ -98,6 +98,9 @@
           "~" = "actions.tcd";
         };
       };
+      neo-tree = {
+        enable = true;
+      };
       treesitter = {
         enable = true;
         settings.indent.enable = true;
