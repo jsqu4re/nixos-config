@@ -100,6 +100,9 @@
       };
       neo-tree = {
         enable = true;
+        filesystem.followCurrentFile.enabled = true;
+        buffers.followCurrentFile.enabled = true;
+        documentSymbols.followCursor = true;
       };
       treesitter = {
         enable = true;
