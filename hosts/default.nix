@@ -26,6 +26,7 @@ in
     ../modules/networking.nix
     ../modules/localization.nix
     ../modules/boot.nix
+    ../modules/bluetooth.nix
   ];
 
   mutabilix = makeNixosSystem [
