@@ -55,7 +55,7 @@
             height = 30;
             width = 130;
           };
-          open_mapping = "[[<c->]]";
+          open_mapping = "[[<c-d>]]";
         };
       };
       telescope = {
@@ -193,6 +193,14 @@
       };
     }
     {
+      action = "<C-\\><C-n>";
+      key = "<esc>";
+      mode = ["t"];
+      options = {
+        silent = true;
+      };
+    }
+    {
       action = "<CMD>Arrow open<CR>";
       key = "<C-a>";
       options = {
@@ -201,7 +209,7 @@
     }
     {
       action = "<CMD>Arrow toggle_current_line_for_buffer<CR>";
-      key = "<C-Tab>";
+      key = "<C-q>";
       options = {
         silent = true;
       };
