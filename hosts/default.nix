@@ -1,5 +1,6 @@
-{ nixosSystem, grub2-theme, nixos-hardware, home-manager, homeNixos, overlays }:
+{ nixpkgs, grub2-theme, nixos-hardware, home-manager, homeNixos, overlays }:
 let
+  nixosSystem = nixpkgs.lib.nixosSystem;
   makeNixosSystem = machineModules: nixosSystem {
     system = "x86_64-linux";
     modules = [
@@ -38,6 +39,7 @@ in
     ../modules/networking.nix
     ../modules/localization.nix
     ../modules/boot.nix
+    # image.modules.iso "${toString modulesPath}/installer/cd-dvd/installation-cd-base.nix"
     nixos-hardware.nixosModules.microsoft-surface-pro-intel
   ];
 }

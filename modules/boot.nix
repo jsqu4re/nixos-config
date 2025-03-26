@@ -1,6 +1,6 @@
-{ ... }:
+{ lib, ... }:
 {
-  boot.loader.grub = {
+  boot.loader.grub = lib.mkDefault {
     enable = true;
     device = "nodev";
     useOSProber = true;
