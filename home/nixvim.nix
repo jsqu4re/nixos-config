@@ -90,16 +90,32 @@
           "<CR>" = "actions.select";
           _ = "actions.open_cwd";
           "`" = "actions.cd";
-          "g." = "actions.toggle_hidden";
+          "H" = "actions.toggle_hidden";
           "g?" = "actions.show_help";
           "g\\" = "actions.toggle_trash";
           gs = "actions.change_sort";
           gx = "actions.open_external";
           "~" = "actions.tcd";
         };
+        settings.use_default_keymaps = false;
       };
       neo-tree = {
         enable = true;
+        filesystem.window.mappings = {
+          H = "toggle_hidden";
+          "/" = "fuzzy_finder";
+          D = "fuzzy_finder_directory";
+          # "/" = "filter_as_you_type"; # this was the default until v1.28
+          "#" = "fuzzy_sorter"; # fuzzy sorting using the fzy algorithm
+          # D = "fuzzy_sorter_directory";
+          f = "filter_on_submit";
+          "<C-x>" = "clear_filter";
+          "<bs>" = "navigate_up";
+          "." = "set_root";
+          "[g" = "prev_git_modified";
+          "]g" = "next_git_modified";
+          "<C-b>" = "close_window";
+        };
         filesystem.followCurrentFile.enabled = true;
         buffers.followCurrentFile.enabled = true;
         documentSymbols.followCursor = true;
@@ -134,7 +150,14 @@
       };
     }
     {
-      action = "<CMD>Telescope live_grep<CR>";
+      action = "<CMD>Jumps<CR>";
+      key = "<C-j>";
+      options = {
+        silent = true;
+      };
+    }
+    {
+      action = "<CMD>Telescope grep_string<CR>";
       key = "<C-f>";
       options = {
         silent = true;
@@ -148,6 +171,20 @@
       };
     }
     {
+      action = "<CMD>Oil<CR>";
+      key = "<->";
+      options = {
+        silent = true;
+      };
+    }
+    {
+      action = "<CMD>Neotree toggle<CR>";
+      key = "<C-b>";
+      options = {
+        silent = true;
+      };
+    }
+    {
       action = "<CMD>ToggleTerm<CR>";
       key = "<C-d>";
       options = {
@@ -156,18 +193,19 @@
     }
     ];
     userCommands = {
-      Files.command = "Telescope fd";
       Ag.command = "Telescope grep_string";
-      Commits.command = "Telescope git_bcommits";
-      Commands.command = "Telescope command_history";
-      Browser.command = "Telescope file_browser";
       Branches.command = "Telescope git_branches";
-      History.command = "Telescope git_commits";
+      Browser.command = "Telescope file_browser";
+      Commands.command = "Telescope command_history";
+      Commits.command = "Telescope git_bcommits";
+      Files.command = "Telescope fd";
       GitFiles.command = "Telescope git_files";
       GitStatus.command = "Telescope git_status";
+      History.command = "Telescope git_commits";
       Jumps.command = "Telescope jumplist";
+      Repl.command = ''TermExec cmd="exec nix repl .\#" name="nix repl"'';
       Search.command = "Telescope live_grep";
       Term.command = "ToggleTerm";
-      Repl.command = ''TermExec cmd="exec nix repl .\#" name="nix repl"'';
+      Tree.command = "Neotree toggle";
     };
 };}
