@@ -25,6 +25,7 @@
       };
       cmp-nvim-lsp.enable = true;
       aerial.enable = true;
+      arrow.enable = true;
       blink-cmp = {
         enable = true;
         settings.keymap = {
@@ -187,6 +188,34 @@
     {
       action = "<CMD>ToggleTerm<CR>";
       key = "<C-d>";
+      options = {
+        silent = true;
+      };
+    }
+    {
+      action = "<CMD>Arrow open<CR>";
+      key = "<C-a>";
+      options = {
+        silent = true;
+      };
+    }
+    {
+      action = "<CMD>Arrow toggle_current_line_for_buffer<CR>";
+      key = "<C-Tab>";
+      options = {
+        silent = true;
+      };
+    }
+    {
+      action = "<CMD>Arrow next_buffer_bookmark<CR>";
+      key = "<Tab>";
+      options = {
+        silent = true;
+      };
+    }
+    {
+      action = "<CMD>Arrow prev_buffer_bookmark<CR>";
+      key = "<S-Tab>";
       options = {
         silent = true;
       };
