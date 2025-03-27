@@ -49,11 +49,13 @@
       toggleterm = {
         enable = true;
         settings = {
+          start_in_insert = false;
           direction = "float";
+          persist_mode = false;
           float_opts = {
             border = "curved";
-            height = 30;
-            width = 130;
+            height = 40;
+            width = 135;
           };
           open_mapping = "[[<c-d>]]";
         };
@@ -142,6 +144,18 @@
       autoindent = true;
       softtabstop = 2;
     };
+    autoCmd = [
+      {
+        command = ":startinsert";
+        event = [
+          "BufEnter"
+          "TermOpen"
+        ];
+        pattern = [
+          "term://*"
+        ];
+      }
+    ];
     keymaps = [
     {
       action = "<CMD>Telescope fd<CR>";
