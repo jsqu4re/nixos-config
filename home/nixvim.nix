@@ -1,4 +1,5 @@
-{ lib, pkgs, ... }: {
+{ lib, pkgs, ... }:
+{
 
   home.sessionVariables = {
     EDITOR = "nvim";
@@ -36,7 +37,7 @@
             debounce = 150;
           };
           sources = [
-            {name = "path";}
+            { name = "path"; }
             {
               name = "nvim_lsp";
               keywordLength = 1;
@@ -45,7 +46,7 @@
               name = "buffer";
               keywordLength = 3;
             }
-            {name = "luasnip";}
+            { name = "luasnip"; }
           ];
         };
       };
@@ -182,91 +183,91 @@
       }
     ];
     keymaps = [
-    {
-      action = "<CMD>Telescope fd<CR>";
-      key = "<C-l>";
-      options = {
-        silent = true;
-      };
-    }
-    {
-      action = "<CMD>Jumps<CR>";
-      key = "<C-j>";
-      options = {
-        silent = true;
-      };
-    }
-    {
-      action = "<CMD>Telescope grep_string<CR>";
-      key = "<C-f>";
-      options = {
-        silent = true;
-      };
-    }
-    {
-      action = "<CMD>Oil<CR>";
-      key = "<C-g>";
-      options = {
-        silent = true;
-      };
-    }
-    {
-      action = "<CMD>Oil<CR>";
-      key = "<->";
-      options = {
-        silent = true;
-      };
-    }
-    {
-      action = "<CMD>Neotree toggle<CR>";
-      key = "<C-b>";
-      options = {
-        silent = true;
-      };
-    }
-    {
-      action = "<CMD>ToggleTerm<CR>";
-      key = "<C-d>";
-      options = {
-        silent = true;
-      };
-    }
-    {
-      action = "<C-\\><C-n>";
-      key = "<esc>";
-      mode = ["t"];
-      options = {
-        silent = true;
-      };
-    }
-    {
-      action = "<CMD>Arrow open<CR>";
-      key = "<C-a>";
-      options = {
-        silent = true;
-      };
-    }
-    {
-      action = "<CMD>Arrow toggle_current_line_for_buffer<CR>";
-      key = "<C-q>";
-      options = {
-        silent = true;
-      };
-    }
-    {
-      action = "<CMD>Arrow next_buffer_bookmark<CR>";
-      key = "<Tab>";
-      options = {
-        silent = true;
-      };
-    }
-    {
-      action = "<CMD>Arrow prev_buffer_bookmark<CR>";
-      key = "<S-Tab>";
-      options = {
-        silent = true;
-      };
-    }
+      {
+        action = "<CMD>Telescope fd<CR>";
+        key = "<C-l>";
+        options = {
+          silent = true;
+        };
+      }
+      {
+        action = "<CMD>Jumps<CR>";
+        key = "<C-j>";
+        options = {
+          silent = true;
+        };
+      }
+      {
+        action = "<CMD>Telescope grep_string<CR>";
+        key = "<C-f>";
+        options = {
+          silent = true;
+        };
+      }
+      {
+        action = "<CMD>Oil<CR>";
+        key = "<C-g>";
+        options = {
+          silent = true;
+        };
+      }
+      {
+        action = "<CMD>Oil<CR>";
+        key = "<->";
+        options = {
+          silent = true;
+        };
+      }
+      {
+        action = "<CMD>Neotree toggle<CR>";
+        key = "<C-b>";
+        options = {
+          silent = true;
+        };
+      }
+      {
+        action = "<CMD>ToggleTerm<CR>";
+        key = "<C-d>";
+        options = {
+          silent = true;
+        };
+      }
+      {
+        action = "<C-\\><C-n>";
+        key = "<esc>";
+        mode = [ "t" ];
+        options = {
+          silent = true;
+        };
+      }
+      {
+        action = "<CMD>Arrow open<CR>";
+        key = "<C-a>";
+        options = {
+          silent = true;
+        };
+      }
+      {
+        action = "<CMD>Arrow toggle_current_line_for_buffer<CR>";
+        key = "<C-q>";
+        options = {
+          silent = true;
+        };
+      }
+      {
+        action = "<CMD>Arrow next_buffer_bookmark<CR>";
+        key = "<Tab>";
+        options = {
+          silent = true;
+        };
+      }
+      {
+        action = "<CMD>Arrow prev_buffer_bookmark<CR>";
+        key = "<S-Tab>";
+        options = {
+          silent = true;
+        };
+      }
     ];
     userCommands = {
       Ag.command = "Telescope grep_string";
@@ -284,4 +285,5 @@
       Term.command = "ToggleTerm";
       Tree.command = "Neotree toggle";
     };
-};}
+  };
+}

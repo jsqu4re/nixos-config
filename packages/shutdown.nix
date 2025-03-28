@@ -1,4 +1,8 @@
-{ writeTextFile, runtimeShell, makeDesktopItem }:
+{
+  writeTextFile,
+  runtimeShell,
+  makeDesktopItem,
+}:
 let
   shutdown-cli = writeTextFile {
     name = "shutdown";

@@ -13,11 +13,11 @@
   hardware.graphics.enable = true;
 
   nix.settings = {
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+    substituters = [ "https://hyprland.cachix.org" ];
+    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
   };
 
-  security.pam.services.hyprlock = {};
+  security.pam.services.hyprlock = { };
 
   services.xserver = {
     enable = true;
@@ -28,10 +28,17 @@
   users.users.jsqu4re = {
     isNormalUser = true;
     description = "Johannes";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
   };
 
-  nix.settings.trusted-users = [ "jsqu4re" "root" "@wheel" ];
+  nix.settings.trusted-users = [
+    "jsqu4re"
+    "root"
+    "@wheel"
+  ];
 
   environment.systemPackages = with pkgs; [
     git
@@ -40,7 +47,10 @@
     curl
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   environment.variables.EDITOR = "vim";
 

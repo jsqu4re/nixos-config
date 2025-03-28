@@ -1,4 +1,10 @@
-{ writeTextFile, runtimeShell, nix, unixtools, makeDesktopItem }:
+{
+  writeTextFile,
+  runtimeShell,
+  nix,
+  unixtools,
+  makeDesktopItem,
+}:
 let
   zen = writeTextFile {
     name = "zen-browser";
@@ -19,7 +25,7 @@ let
   zen-browser = makeDesktopItem {
     name = "zen";
     desktopName = "Zen Browser";
-    exec = "${zen}/bin/zen"; 
+    exec = "${zen}/bin/zen";
     icon = builtins.fetchurl {
       url = "https://cdn2.steamgriddb.com/icon/682d409f010b6adafa853f2111b6d49a.png";
       sha256 = "sha256:05wf4m4nwhilfi4i0mg7d9n6cb8cqgx3kwra4075r69n83723lci";

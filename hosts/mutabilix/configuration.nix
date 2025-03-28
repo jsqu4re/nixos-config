@@ -3,10 +3,9 @@
 #   devices = [ "10de:1c8d" ];
 # in
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   networking.hostName = "mutabilix";
 

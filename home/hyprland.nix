@@ -36,7 +36,8 @@ in
       "$terminal" = "${pkgs.lib.getExe config.programs.kitty.package}";
       "$editor" = "${pkgs.lib.getExe config.programs.nixvim.package}";
       "$browser" = "${pkgs.lib.getExe pkgs.zen-browser}";
-      "$launcher" = "${pkgs.lib.getExe pkgs.fuzzel} -b ${color.background}F5 -t ${color.foreground}FF -s ${color.cyan}AF -m ${color.yellow}90 -S ${color.black}FF -M ${color.green}FF -r 40 -B 2 -C ${color.white}F5 -y 30 -P 20";
+      "$launcher" =
+        "${pkgs.lib.getExe pkgs.fuzzel} -b ${color.background}F5 -t ${color.foreground}FF -s ${color.cyan}AF -m ${color.yellow}90 -S ${color.black}FF -M ${color.green}FF -r 40 -B 2 -C ${color.white}F5 -y 30 -P 20";
       "$fileManager" = "${pkgs.lib.getExe pkgs.nemo-with-extensions}";
 
       env = [
@@ -63,8 +64,8 @@ in
 
       windowrulev2 = [
         # steam
-	      "stayfocused, title:^()$,class:^(steam)$"
-	      "minsize 1 1, title:^()$,class:^(steam)$"
+        "stayfocused, title:^()$,class:^(steam)$"
+        "minsize 1 1, title:^()$,class:^(steam)$"
         "float, class:(steam), title:(Steam)"
         "float, class:(steam), title:(Friends List)"
         "nofocus, class:^(steam)$, title:^()$"
@@ -90,7 +91,10 @@ in
         "ignorezero, ags-*"
       ];
 
-      monitor = ["HDMI-A-3,3840x2160@60,0x0,1" "Unknown-1,disable"];
+      monitor = [
+        "HDMI-A-3,3840x2160@60,0x0,1"
+        "Unknown-1,disable"
+      ];
 
       input = {
         sensitivity = "-0.25";
@@ -189,7 +193,7 @@ in
         # scroll through workspaces
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"
-        
+
         # scroll through workspaces
         "CTRL $mainMod, right, workspace, e+1"
         "CTRL $mainMod, left, workspace, e-1"
@@ -218,14 +222,15 @@ in
 
         # brightness control
         ", XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 2.5%-"
-        ", XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set +2.5%" ];
+        ", XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set +2.5%"
+      ];
 
       misc = {
         disable_hyprland_logo = true;
       };
     };
   };
-  
+
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
@@ -239,10 +244,10 @@ in
         position = "top";
         height = 10;
         "cpu" = {
-          interval=1;
-          format=" &#xf2db; {icon} ";
-          format-icons={
-            default= [
+          interval = 1;
+          format = " &#xf2db; {icon} ";
+          format-icons = {
+            default = [
               "        "
               "|       "
               "||      "
@@ -256,10 +261,10 @@ in
           };
         };
         "memory" = {
-          interval=1;
-          format=" &#xf3ff; {icon} ";
-          format-icons={
-            default= [
+          interval = 1;
+          format = " &#xf3ff; {icon} ";
+          format-icons = {
+            default = [
               "        "
               "|       "
               "||      "
@@ -273,14 +278,14 @@ in
           };
         };
         "disk" = {
-          interval=1;
-          format=" &#xf1c0; {free} ";
+          interval = 1;
+          format = " &#xf1c0; {free} ";
         };
-        "pulseaudio"= {
-          format="{icon}";
-          format-muted="&#xF6A9;        ";
-          format-icons={
-            default= [
+        "pulseaudio" = {
+          format = "{icon}";
+          format-muted = "&#xF6A9;        ";
+          format-icons = {
+            default = [
               "&#xF026;        "
               "&#xF027;        "
               "&#xF028;        "
@@ -289,12 +294,13 @@ in
               "&#xF028; )||    "
               "&#xF028; )|||   "
               "&#xF028; )||||  "
-              "&#xF028; )||||| "];
+              "&#xF028; )||||| "
+            ];
           };
-          on-click="wpctl set-mute @DEFAULT_SINK@ toggle";
-          on-click-right="pavucontrol";
+          on-click = "wpctl set-mute @DEFAULT_SINK@ toggle";
+          on-click-right = "pavucontrol";
         };
-        "clock"= {
+        "clock" = {
           format = "{:%H:%M}";
           format-alt = "{:%A   %d. %B %Y   %R}";
           tooltip-format = "<tt><small>{calendar}</small></tt>";
@@ -330,14 +336,20 @@ in
           format-charging = "";
           format-plugged = "";
           format-full = "";
-          format-icons = ["" "" "" "" ""];
+          format-icons = [
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
           max-length = 25;
         };
         "hyprland/window" = {
           max-length = 200;
           rewrite = {
-            "(.*) — Zen Browser"= "  $1";
-            "nvim(.*)"= "N";
+            "(.*) — Zen Browser" = "  $1";
+            "nvim(.*)" = "N";
           };
           separate-outputs = true;
         };
@@ -348,8 +360,12 @@ in
           "memory"
           "disk"
         ];
-        modules-center = ["hyprland/window"];
-        modules-right = ["tray" "battery" "clock"];
+        modules-center = [ "hyprland/window" ];
+        modules-right = [
+          "tray"
+          "battery"
+          "clock"
+        ];
       };
     };
     # font-family: Source Code Pro;
@@ -462,7 +478,7 @@ in
         border-left: 2px solid #${color.cyan};
         border-right: 2px solid #${color.yellow};
       }
-      
+
       #window {
         border-left: 2px solid #${color.yellow};
         border-right: 2px solid #${color.cyan};

@@ -13,28 +13,58 @@
     grub2-theme.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, grub2-theme, nixos-hardware, home-manager, nixvim, ... }:
-  let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      overlays = [ self.overlays.default ];
+  outputs =
+    {
+      self,
+      nixpkgs,
+      grub2-theme,
+      nixos-hardware,
+      home-manager,
+      nixvim,
+      ...
+    }:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [ self.overlays.default ];
+      };
+      homeConfigurations = import ./home {
+        inherit
+          nixpkgs
+          pkgs
+          home-manager
+          nixvim
+          ;
+      };
+      homeNixos = homeConfigurations.nixos;
+      homeConfigActivationPackages = builtins.mapAttrs (
+        _name: homeConfig: homeConfig.activationPackage
+      ) homeConfigurations.home;
+      nixosMachinePackages = builtins.mapAttrs (
+        _name: nixosConfig: nixosConfig.config.system.build.toplevel
+      ) self.nixosConfigurations;
+    in
+    {
+      inherit nixpkgs;
+      nixosConfigurations = import ./hosts {
+        inherit
+          nixpkgs
+          grub2-theme
+          nixos-hardware
+          home-manager
+          homeNixos
+          ;
+        inherit (self) overlays;
+      };
+      nixosModules = import ./modules { };
+      homeConfigurations = homeConfigurations.home;
+
+      formatter.${system} = pkgs.nixfmt-rfc-style;
+
+      packages.${system} =
+        homeConfigActivationPackages // nixosMachinePackages // { inherit (pkgs) zen-browser; };
+
+      overlays.default = import ./overlay.nix;
     };
-    homeConfigurations = import ./home { inherit nixpkgs pkgs home-manager nixvim; };
-    homeNixos = homeConfigurations.nixos;
-    homeConfigActivationPackages = builtins.mapAttrs (_name: homeConfig: homeConfig.activationPackage) homeConfigurations.home;
-    nixosMachinePackages = builtins.mapAttrs (_name: nixosConfig: nixosConfig.config.system.build.toplevel) self.nixosConfigurations;
-  in
-  {
-    inherit nixpkgs;
-    nixosConfigurations = import ./hosts { inherit nixpkgs grub2-theme nixos-hardware home-manager homeNixos; inherit (self) overlays; };
-    nixosModules = import ./modules { };
-    homeConfigurations = homeConfigurations.home;
-
-    formatter.${system} = pkgs.nixfmt-rfc-style;
-
-    packages.${system} = homeConfigActivationPackages // nixosMachinePackages // { inherit (pkgs) zen-browser; };
-
-    overlays.default = import ./overlay.nix;
-  };
 }
