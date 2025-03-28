@@ -15,7 +15,7 @@ let
   };
   shutdown = makeDesktopItem {
     name = "shutdown";
-    desktopName = "shutdown now";
+    desktopName = "Shutdown now";
     exec = "${shutdown-cli}/bin/shutdown-now";
     icon = builtins.fetchurl {
       url = "https://png.pngtree.com/png-clipart/20230812/original/pngtree-shutdown-icon-isolated-shutdown-vector-picture-image_10452920.png";
