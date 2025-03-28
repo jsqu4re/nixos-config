@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ./nixvim.nix
   ];
@@ -36,7 +35,7 @@
     # Unnecessary
     cmatrix
     neofetch
-    
+
     # Files
     nnn # terminal file manager
     gdu # better ncdu
@@ -60,7 +59,7 @@
     # Nix
     nixpkgs-fmt
     nix-output-monitor
-    
+
     # Viewer
     glow # markdown previewer in terminal
     bat
@@ -69,7 +68,7 @@
 
     # Monitoring
     htop
-    btop  # replacement of htop/nmon
+    btop # replacement of htop/nmon
     iotop # io monitoring
     iftop # network monitoring
 

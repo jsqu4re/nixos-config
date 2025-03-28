@@ -20,10 +20,35 @@
         };
         # capabilities = "";
       };
+      cmp-nvim-lsp.enable = true;
+      lspkind.enable = true;
+      lspkind.cmp.enable = true;
+      luasnip.enable = true;
+      cmp-buffer.enable = true;
+      cmp-path.enable = true;
+      cmp-treesitter.enable = true;
+      dap.enable = true;
       cmp = {
         enable = true;
+        settings = {
+          autoEnableSources = true;
+          performance = {
+            debounce = 150;
+          };
+          sources = [
+            {name = "path";}
+            {
+              name = "nvim_lsp";
+              keywordLength = 1;
+            }
+            {
+              name = "buffer";
+              keywordLength = 3;
+            }
+            {name = "luasnip";}
+          ];
+        };
       };
-      cmp-nvim-lsp.enable = true;
       aerial.enable = true;
       arrow.enable = true;
       blink-cmp = {
@@ -40,11 +65,15 @@
           };
         };
       };
+      # instant = {
+      #   enable = true;
+      #   username = "Johannes";
+      # };
       mini.enable = true;
-      render-markdown.enable = true;
-      fzf-lua = {
-        enable = false;
-      };
+      # render-markdown.enable = true;
+      # fzf-lua = {
+      #   enable = false;
+      # };
       todo-comments.enable = true;
       toggleterm = {
         enable = true;
@@ -52,11 +81,7 @@
           start_in_insert = false;
           direction = "float";
           persist_mode = false;
-          float_opts = {
-            border = "curved";
-            height = 40;
-            width = 135;
-          };
+          float_opts.border = "curved";
           open_mapping = "[[<c-d>]]";
         };
       };
