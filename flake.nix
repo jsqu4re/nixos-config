@@ -31,6 +31,8 @@
     nixosModules = import ./modules { };
     homeConfigurations = homeConfigurations.home;
 
+    formatter.${system} = pkgs.nixfmt-rfc-style;
+
     packages.${system} = homeConfigActivationPackages // nixosMachinePackages // { inherit (pkgs) zen-browser; };
 
     overlays.default = import ./overlay.nix;
