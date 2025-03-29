@@ -8,7 +8,6 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
-    nixvim.inputs.home-manager.follows = "home-manager";
     grub2-theme.url = "github:vinceliuice/grub2-themes";
     grub2-theme.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -60,7 +59,7 @@
       nixosModules = import ./modules { };
       homeConfigurations = homeConfigurations.home;
 
-      formatter.${system} = pkgs.nixfmt-rfc-style;
+      formatter.${system} = pkgs.nixfmt-tree;
 
       packages.${system} =
         homeConfigActivationPackages // nixosMachinePackages // { inherit (pkgs) zen-browser; };
