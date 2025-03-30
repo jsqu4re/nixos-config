@@ -1,9 +1,5 @@
 { pkgs, ... }:
 let
-  screenshot = pkgs.writeShellScriptBin "screenshot" ''
-    ${pkgs.grim}/bin/grim -g "${pkgs.slurp}" - | ${pkgs.wl-clipboard}/bin/wl-copy
-  '';
-
   lockscreen = pkgs.writeShellScriptBin "lock-screen" ''
     swaylock -c 000000
   '';
@@ -17,11 +13,12 @@ in
     pkgs.fd
     pkgs.nerd-fonts.jetbrains-mono
     pkgs.powerline-fonts
-    screenshot
+    pkgs.screenshot
     lockscreen
   ];
 
   fonts.fontconfig.enable = true;
+  programs.bash.enable = true;
 
   home.file = {
     ".config/sway/config".source = pkgs.substitute {
