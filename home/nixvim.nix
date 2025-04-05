@@ -22,7 +22,7 @@
         # capabilities = "";
       };
       cmp-nvim-lsp.enable = true;
-      lspkind.enable = true;
+      lspkind.enable = false;
       lspkind.cmp.enable = true;
       luasnip.enable = true;
       cmp-buffer.enable = true;
