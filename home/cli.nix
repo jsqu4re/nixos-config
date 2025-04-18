@@ -57,6 +57,8 @@
     zstd
     gnupg
 
+    networkmanager
+
     # Nix
     nixpkgs-fmt
     nix-output-monitor

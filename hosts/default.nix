@@ -52,4 +52,16 @@ in
     # image.modules.iso "${toString modulesPath}/installer/cd-dvd/installation-cd-base.nix"
     nixos-hardware.nixosModules.microsoft-surface-pro-intel
   ];
+
+  lavoro = makeNixosSystem [
+    ./mutabilix/configuration.nix
+    ../modules/user.nix
+    ../modules/gaming.nix
+    ../modules/bluetooth.nix
+    ../modules/audio.nix
+    # ../modules/networking.nix
+    ../modules/localization.nix
+    ../modules/boot.nix
+    ({ modulesPath, ... }: { imports = [ "${modulesPath}/installer/cd-dvd/installation-cd-base.nix" ]; })
+  ];
 }

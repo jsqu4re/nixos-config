@@ -62,7 +62,8 @@
       formatter.${system} = pkgs.nixfmt-tree;
 
       packages.${system} =
-        homeConfigActivationPackages // nixosMachinePackages // { inherit (pkgs) zen-browser; };
+        homeConfigActivationPackages // nixosMachinePackages // { inherit (pkgs) zen-browser; } //
+        { lavoro-install-iso = self.nixosConfigurations.lavoro.config.system.build.isoImage; };
 
       overlays.default = import ./overlay.nix;
     };

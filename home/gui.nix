@@ -16,6 +16,7 @@
     liberation_ttf
     nerd-fonts.arimo
 
+    gparted
     # games
     # itch
     # steam
