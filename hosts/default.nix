@@ -62,6 +62,7 @@ in
     # ../modules/networking.nix
     ../modules/localization.nix
     ../modules/boot.nix
+    ({ lib, ... }: { networking.hostName = lib.mkForce "lavoro"; })
     ({ modulesPath, ... }: { imports = [ "${modulesPath}/installer/cd-dvd/installation-cd-base.nix" ]; })
   ];
 }
