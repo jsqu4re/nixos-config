@@ -8,7 +8,21 @@
   programs.nixvim = {
     enable = true;
     plugins = {
+      aerial.enable = true;
+      arrow.enable = true;
+      cmp-buffer.enable = true;
+      cmp-nvim-lsp.enable = true;
+      cmp-path.enable = true;
+      cmp-treesitter.enable = true;
+      dap.enable = true;
       direnv.enable = true;
+      lspkind.cmp.enable = true;
+      lspkind.enable = false;
+      luasnip.enable = true;
+      mini.enable = true;
+      spectre.enable = true;
+      todo-comments.enable = true;
+      web-devicons.enable = true;
       lsp = {
         enable = true;
         servers = {
@@ -21,14 +35,6 @@
         };
         # capabilities = "";
       };
-      cmp-nvim-lsp.enable = true;
-      lspkind.enable = false;
-      lspkind.cmp.enable = true;
-      luasnip.enable = true;
-      cmp-buffer.enable = true;
-      cmp-path.enable = true;
-      cmp-treesitter.enable = true;
-      dap.enable = true;
       cmp = {
         enable = true;
         settings = {
@@ -50,8 +56,6 @@
           ];
         };
       };
-      aerial.enable = true;
-      arrow.enable = true;
       blink-cmp = {
         enable = true;
         settings.keymap = {
@@ -70,12 +74,10 @@
       #   enable = true;
       #   username = "Johannes";
       # };
-      mini.enable = true;
       # render-markdown.enable = true;
       # fzf-lua = {
       #   enable = false;
       # };
-      todo-comments.enable = true;
       toggleterm = {
         enable = true;
         settings = {
@@ -154,7 +156,6 @@
         settings.indent.enable = true;
         grammarPackages = pkgs.vimPlugins.nvim-treesitter.passthru.allGrammars;
       };
-      web-devicons.enable = true;
     };
     opts = {
       number = true;

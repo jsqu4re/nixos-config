@@ -5,6 +5,7 @@
     zen-browser.cli
     shutdown
     screenshot
+    screenshot.cli
     wl-clipboard
     nautilus
     # gimp

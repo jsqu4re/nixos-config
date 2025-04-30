@@ -19,6 +19,7 @@ in
 
   fonts.fontconfig.enable = true;
   programs.bash.enable = true;
+  targets.genericLinux.enable = true;
 
   home.file = {
     ".config/sway/config".source = pkgs.substitute {

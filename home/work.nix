@@ -11,5 +11,8 @@
     userName = "Johannes Jeising";
   };
 
-  targets.genericLinux.enable = true;
+  programs.ssh.forwardAgent = {
+    enable = true;
+    programs.ssh.addKeysToAgent = "confirm";
+  };
 }
