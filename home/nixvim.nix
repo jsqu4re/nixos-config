@@ -199,8 +199,15 @@
         };
       }
       {
-        action = "<CMD>Telescope grep_string<CR>";
+        action = "<CMD>Telescope live_grep<CR>";
         key = "<C-f>";
+        options = {
+          silent = true;
+        };
+      }
+      {
+        action = "<CMD>Spectre<CR>";
+        key = "<C-M-f>";
         options = {
           silent = true;
         };
