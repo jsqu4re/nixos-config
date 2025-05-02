@@ -6,6 +6,8 @@
     shutdown
     screenshot
     screenshot.cli
+    share-cli
+    share-cli.cli
     wl-clipboard
     nautilus
     # gimp
