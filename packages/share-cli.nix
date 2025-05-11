@@ -23,7 +23,7 @@ let
     exec = "${lib.getExe shareCli-cli}";
     icon = builtins.fetchurl {
       url = "https://cdn4.iconfinder.com/data/icons/share-2/32/308-01-1024.png";
-      sha256 = "sha256:13w7y98kr9p8wb3v28qvhd5jgx7104s0lknfjc6f16anbqfkk55y";
+      sha256 = "sha256:1dkpphgv2h2qkf7j735g7l600plnv7906rrbw2chizvcgfm8j2rj";
     };
   };
 in

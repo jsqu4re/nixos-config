@@ -29,6 +29,8 @@
     quickemu
   ];
 
+  services.openssh.enable = true;
+
   services.onedrive.enable = true;
 
   system.stateVersion = "24.11";

@@ -38,6 +38,7 @@ in
     ../modules/localization.nix
     ../modules/boot.nix
     ../modules/bluetooth.nix
+    ../modules/tailscale.nix
   ];
 
   mutabilix = makeNixosSystem [
@@ -49,6 +50,7 @@ in
     ../modules/networking.nix
     ../modules/localization.nix
     ../modules/boot.nix
+    ../modules/tailscale.nix
     # image.modules.iso "${toString modulesPath}/installer/cd-dvd/installation-cd-base.nix"
     nixos-hardware.nixosModules.microsoft-surface-pro-intel
   ];
