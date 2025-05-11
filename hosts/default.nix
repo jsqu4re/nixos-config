@@ -56,15 +56,14 @@ in
   ];
 
   lavoro = makeNixosSystem [
-    ./mutabilix/configuration.nix
+    ./lavoro/configuration.nix
     ../modules/user.nix
     ../modules/gaming.nix
     ../modules/bluetooth.nix
     ../modules/audio.nix
-    # ../modules/networking.nix
+    ../modules/networking.nix
     ../modules/localization.nix
     ../modules/boot.nix
-    ({ lib, ... }: { networking.hostName = lib.mkForce "lavoro"; })
-    ({ modulesPath, ... }: { imports = [ "${modulesPath}/installer/cd-dvd/installation-cd-base.nix" ]; })
+    ({ modulesPath, ... }: { imports = [ "${modulesPath}/installer/sd-card/sd-image-x86_64.nix" ]; })
   ];
 }
