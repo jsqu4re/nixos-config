@@ -63,7 +63,7 @@
 
       packages.${system} =
         homeConfigActivationPackages // nixosMachinePackages // { inherit (pkgs) zen-browser; } //
-        { lavoro-sdcard = self.nixosConfigurations.lavoro.config.system.build.sdImage; };
+        { lavoro-usbstick= self.nixosConfigurations.lavoro.config.system.build.isoImage; };
 
       overlays.default = import ./overlay.nix;
     };

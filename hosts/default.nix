@@ -64,6 +64,5 @@ in
     ../modules/networking.nix
     ../modules/localization.nix
     ../modules/boot.nix
-    ({ modulesPath, ... }: { imports = [ "${modulesPath}/installer/sd-card/sd-image-x86_64.nix" ]; })
   ];
 }
