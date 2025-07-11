@@ -235,4 +235,7 @@ gaps inner 1
 default_border none
 default_floating_border none
 
+# Wacom Tablet
+input 1386:223:Wacom_Bamboo_16FG_6x8_Pen map_to_region 150 150 3500 1800
+
 include /etc/sway/config.d/*
