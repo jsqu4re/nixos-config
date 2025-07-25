@@ -11,8 +11,8 @@ let
     name = "share-cli";
     text = ''
       #! ${runtimeShell}
-      ${lib.getExe chromium} 127.0.0.1:8080
-      ${lib.getExe gotty} -w bash
+      ${lib.getExe chromium} 127.0.0.1:8088
+      ${lib.getExe gotty} -p 8088 -w bash
     '';
     executable = true;
     destination = "/bin/share-cli";
