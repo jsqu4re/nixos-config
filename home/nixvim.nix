@@ -14,15 +14,20 @@
       cmp-nvim-lsp.enable = true;
       cmp-path.enable = true;
       cmp-treesitter.enable = true;
+      cmp.enable = true;
       dap.enable = true;
       direnv.enable = true;
       lspkind.cmp.enable = true;
-      lspkind.enable = false;
+      lspkind.enable = true;
       luasnip.enable = true;
       mini.enable = true;
       spectre.enable = true;
       todo-comments.enable = true;
       web-devicons.enable = true;
+      trouble = {
+        enable = true;
+        settings = {};
+      };
       lsp = {
         enable = true;
         servers = {
@@ -30,31 +35,20 @@
             enable = true;
             settings.formatting.command = [ "nixfmt-rfc-style" ];
           };
-          pylsp.enable = true;
+          bashls.enable = true;
+          clangd.enable = true;
           cmake.enable = true;
+          cssls.enable = true;
+          gleam.enable = true;
+          html.enable = true;
+          jsonls.enable = true;
+          lua_ls.enable = true;
+          markdown_oxide.enable = true;
+          pylsp.enable = true;
+          statix.enable = true;
+          yamlls.enable = true;
         };
         # capabilities = "";
-      };
-      cmp = {
-        enable = true;
-        settings = {
-          autoEnableSources = true;
-          performance = {
-            debounce = 150;
-          };
-          sources = [
-            { name = "path"; }
-            {
-              name = "nvim_lsp";
-              keywordLength = 1;
-            }
-            {
-              name = "buffer";
-              keywordLength = 3;
-            }
-            { name = "luasnip"; }
-          ];
-        };
       };
       blink-cmp = {
         enable = true;
@@ -68,6 +62,7 @@
           lsp = {
             fallbacks = [ ];
           };
+          path = {};
         };
       };
       # instant = {
@@ -154,7 +149,7 @@
       treesitter = {
         enable = true;
         settings.indent.enable = true;
-        grammarPackages = pkgs.vimPlugins.nvim-treesitter.passthru.allGrammars;
+        # grammarPackages = pkgs.vimPlugins.nvim-treesitter.passthru.allGrammars;
       };
     };
     opts = {
