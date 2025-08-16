@@ -9,7 +9,7 @@
 let
   nixosSystem = nixpkgs.lib.nixosSystem;
   makeNixosSystem =
-    machineModules:
+    machineModules: home:
     nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -19,7 +19,7 @@ let
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.jsqu4re = homeNixos.jsqu4re;
+            users.jsqu4re = home;
             backupFileExtension = "backup";
           };
         }
@@ -39,7 +39,7 @@ in
     ../modules/boot.nix
     ../modules/bluetooth.nix
     ../modules/tailscale.nix
-  ];
+  ] homeNixos.jsqu4re;
 
   mutabilix = makeNixosSystem [
     ./mutabilix/configuration.nix
@@ -53,7 +53,7 @@ in
     ../modules/tailscale.nix
     # image.modules.iso "${toString modulesPath}/installer/cd-dvd/installation-cd-base.nix"
     nixos-hardware.nixosModules.microsoft-surface-pro-intel
-  ];
+  ] homeNixos.jsqu4re;
 
   lavoro = makeNixosSystem [
     ./lavoro/configuration.nix
@@ -64,11 +64,11 @@ in
     ../modules/networking.nix
     ../modules/localization.nix
     ../modules/boot.nix
-  ];
+  ] homeNixos.jsqu4re;
 
   mons = makeNixosSystem [
     ./mons/configuration.nix
     ../modules/tailscale.nix
     ../modules/updater.nix
-  ];
+  ] homeNixos.jsqu4re-cli;
 }

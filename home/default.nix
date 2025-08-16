@@ -47,6 +47,15 @@ in
       ]
       ++ modules
     );
+
+    jsqu4re-cli = makeConfig (
+      [
+        ./home.nix
+        ./cli.nix
+        ./base.nix
+      ]
+      ++ modules
+    );
   };
 
   nixos = {
@@ -57,6 +66,16 @@ in
           ./home.nix
           ./gui.nix
           ./hyprland.nix
+          ./cli.nix
+          ./base.nix
+        ] ++ modules;
+      };
+
+    jsqu4re-cli =
+      { ... }:
+      {
+        imports = [
+          ./home.nix
           ./cli.nix
           ./base.nix
         ] ++ modules;
