@@ -18,17 +18,18 @@
 
     # have the job run this shell script
     script = with pkgs; ''
-    # wait for tailscaled to settle
+      # wait for tailscaled to settle
       sleep 2
 
-    # check if we are already authenticated to tailscale
+      # check if we are already authenticated to tailscale
       status="$(${tailscale}/bin/tailscale status -json | ${jq}/bin/jq -r .BackendState)"
       if [ $status = "Running" ]; then # if so, then do nothing
       exit 0
       fi
 
-    # otherwise authenticate with tailscale
-      ${tailscale}/bin/tailscale up --advertise-exit-node --accept-routes --advertise-routes 192.168.178.0/24 --auth-key=tskey-auth-knnsUEjTBZ11CNTRL-Q5oWk7fECTBgSZQa5X9QSBzkXLxXCj3oX
+      # otherwise authenticate with tailscale
+      ${tailscale}/bin/tailscale up --advertise-exit-node --accept-routes --advertise-connector --advertise-routes 192.168.178.0/24
+      # --auth-key=tskey-auth-knnsUEjTBZ11CNTRL-Q5oWk7fECTBgSZQa5X9QSBzkXLxXCj3oX
     '';
   };
 }
