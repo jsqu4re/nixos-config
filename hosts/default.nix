@@ -65,4 +65,10 @@ in
     ../modules/localization.nix
     ../modules/boot.nix
   ];
+
+  mons = makeNixosSystem [
+    ./mons/configuration.nix
+    ../modules/tailscale.nix
+    ../modules/updater.nix
+  ];
 }
