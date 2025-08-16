@@ -2,7 +2,7 @@
 {
   system.autoUpgrade = {
     enable = true;
-    flake = "github.com:jsqu4re/nixos-config#${config.networking.hostName}";
+    flake = "github:jsqu4re/nixos-config#${config.networking.hostName}";
     allowReboot = true;
   };
 }
