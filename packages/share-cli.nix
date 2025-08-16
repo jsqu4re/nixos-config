@@ -21,10 +21,7 @@ let
     name = "share-cli";
     desktopName = "Share CLI";
     exec = "${lib.getExe shareCli-cli}";
-    icon = builtins.fetchurl {
-      url = "https://cdn4.iconfinder.com/data/icons/share-2/32/308-01-1024.png";
-      sha256 = "sha256:1dkpphgv2h2qkf7j735g7l600plnv7906rrbw2chizvcgfm8j2rj";
-    };
+    icon = ../assets/icon/share-cli.png;
   };
 in
 shareCli.overrideAttrs (_: {

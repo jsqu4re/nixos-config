@@ -21,7 +21,7 @@ let
     name = "screenshot";
     desktopName = "Screenshot";
     exec = "${lib.getExe screenshot-cli}";
-    icon = ../assets/icon/Screenshot_icon-icons.com_55819.png;
+    icon = ../assets/icon/screenshot.png;
   };
 in
 screenshot.overrideAttrs (_: {
