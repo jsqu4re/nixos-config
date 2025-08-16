@@ -68,7 +68,7 @@ in
 
   mons = makeNixosSystem [
     ./mons/configuration.nix
-    ../modules/tailscale.nix
+    ../modules/tailscale-server.nix
     ../modules/updater.nix
   ] homeNixos.jsqu4re-cli;
 }
