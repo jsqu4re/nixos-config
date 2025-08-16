@@ -28,8 +28,7 @@
       fi
 
     # otherwise authenticate with tailscale
-      ${tailscale}/bin/tailscale up --advertise-exit-node --accept-routes --advertise-routes 192.168.1.0/24
-      # -authkey tskey-auth-kABGVX7CNTRL-MYeLN8ra4mcdhnYPzAWFmcRWqS8ZKpoaX
+      ${tailscale}/bin/tailscale up --advertise-exit-node --accept-routes --advertise-routes 192.168.178.0/24 --auth-key=tskey-auth-knnsUEjTBZ11CNTRL-Q5oWk7fECTBgSZQa5X9QSBzkXLxXCj3oX
     '';
   };
 }
