@@ -33,9 +33,6 @@
   };
 
   home.packages = with pkgs; [
-    nix
-    devenv
-
     # Unnecessary
     cmatrix
     neofetch

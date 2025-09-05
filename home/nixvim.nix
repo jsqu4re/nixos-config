@@ -42,6 +42,14 @@
           gleam.enable = true;
           html.enable = true;
           jsonls.enable = true;
+          lemminx = {
+            enable = true;
+            settings.filetypes = [
+              "xml"
+              "launch"
+              "test"
+            ];
+          };
           lua_ls.enable = true;
           markdown_oxide.enable = true;
           pylsp.enable = true;
